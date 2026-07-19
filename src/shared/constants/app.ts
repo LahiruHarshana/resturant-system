@@ -1,0 +1,10 @@
+export const APP_NAME = "Restaurant Order Management System";
+
+export const GUIDE_SEQUENCE = [
+  "01_AI_AGENT_OPERATING_PROTOCOL.md",
+  "02_PRODUCT_SCOPE_AND_BUSINESS_FLOW.md",
+  "03_ARCHITECTURE_AND_TECHNICAL_DECISIONS.md",
+  "04_REPOSITORY_BOOTSTRAP_AND_STRUCTURE.md",
+] as const;
+
+export const TOUCH_TARGET_MIN_PX = 44;
