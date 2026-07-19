@@ -202,9 +202,9 @@ export function ComposerCartDrawer({
                       <div className="flex justify-between items-start">
                         <div>
                           <span className="font-medium">{line.quantity}x {line.nameSnapshot}</span>
-                          {line.modifierSnapshots?.length > 0 && (
+                          {(line.modifierSnapshots?.length ?? 0) > 0 && (
                             <div className="text-muted-foreground ml-4 text-xs">
-                              {line.modifierSnapshots.map((m: { nameSnapshot: string }, i: number) => (
+                              {line.modifierSnapshots?.map((m: { nameSnapshot: string }, i: number) => (
                                 <div key={i}>+ {m.nameSnapshot}</div>
                               ))}
                             </div>

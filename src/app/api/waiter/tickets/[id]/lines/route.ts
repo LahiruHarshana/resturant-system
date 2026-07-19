@@ -3,7 +3,7 @@ import { addOrderLines, getOrderLines } from "@/server/waiter/order-service";
 import { ZodError } from "zod";
 
 export async function GET(
-  request: Request,
+  _request: Request,
   props: { params: Promise<{ id: string }> },
 ) {
   try {
