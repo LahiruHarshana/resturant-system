@@ -1,5 +1,5 @@
 import { StationModel } from "@/server/db/models";
-import dbConnect from "@/server/db/mongodb";
+import { connectToDatabase } from "@/server/db/connect";
 import Link from "next/link";
 import { AppShell } from "@/components/layout/app-shell";
 import { PageHeader } from "@/components/layout/page-header";
@@ -8,7 +8,7 @@ import { Soup, Coffee, Monitor } from "lucide-react";
 export const revalidate = 0; // Ensure fresh data
 
 export default async function StationsSelectorPage() {
-  await dbConnect();
+  await connectToDatabase();
   
   const stations = await StationModel.find({ isActive: true })
     .sort({ sortOrder: 1, name: 1 })
