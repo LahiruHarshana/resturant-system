@@ -53,7 +53,7 @@ export default async function Home() {
             ))
           ) : (
             <div className="col-span-full py-12 text-center text-muted-foreground">
-              <p>You don't have access to any modules yet.</p>
+              <p>You don&apos;t have access to any modules yet.</p>
               <p>Please contact an administrator to assign roles to your account.</p>
             </div>
           )}

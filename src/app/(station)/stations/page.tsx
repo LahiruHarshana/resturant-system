@@ -22,7 +22,7 @@ export default async function StationsSelectorPage() {
         description="Choose a station to launch its dedicated Kitchen Display System (KDS) view."
       />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8">
-        {stations.map((station: any) => {
+        {stations.map((station: { _id: { toString: () => string }; name: string; type: string }) => {
           const isBar = station.type === "BAR";
           const isKitchen = station.type === "KITCHEN";
           const Icon = isBar ? Coffee : isKitchen ? Soup : Monitor;

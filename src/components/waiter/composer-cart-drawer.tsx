@@ -196,15 +196,15 @@ export function ComposerCartDrawer({
                 <div className="space-y-3 mt-4 border-t pt-4">
                   <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Already Ordered</div>
                   {existingLinesData.lines
-                    .filter((l: any) => l.status !== "VOID")
-                    .map((line: any) => (
+                    .filter((l: { status: string }) => l.status !== "VOID")
+                    .map((line: { id: string; quantity: number; nameSnapshot: string; modifierSnapshots?: { nameSnapshot: string }[]; priceSnapshotMinor: number; status: string }) => (
                     <div key={line.id} className="flex flex-col text-sm">
                       <div className="flex justify-between items-start">
                         <div>
                           <span className="font-medium">{line.quantity}x {line.nameSnapshot}</span>
                           {line.modifierSnapshots?.length > 0 && (
                             <div className="text-muted-foreground ml-4 text-xs">
-                              {line.modifierSnapshots.map((m: any, i: number) => (
+                              {line.modifierSnapshots.map((m: { nameSnapshot: string }, i: number) => (
                                 <div key={i}>+ {m.nameSnapshot}</div>
                               ))}
                             </div>
