@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import { UserModel, RoleModel } from "@/server/db/models";
+import { connectToDatabase } from "@/server/db/connect";
 import { AuthenticationError, AuthorizationError } from "./errors";
 import { type PermissionKey } from "@/shared/authorization/permissions";
 
@@ -11,6 +12,7 @@ export async function resolveEffectivePermissions(userId: string): Promise<{
   permissions: Set<PermissionKey>;
   rolesVersion: number;
 }> {
+  await connectToDatabase();
   const user = await UserModel.findById(userId)
     .select("isActive roles rolesVersion")
     .lean()
